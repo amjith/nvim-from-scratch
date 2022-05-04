@@ -45,7 +45,9 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+  use "windwp/nvim-ts-autotag" -- Autoclose html and tsx
   use "numToStr/Comment.nvim" -- Easily comment stuff
+  use "mg979/vim-visual-multi"
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
   use "akinsho/bufferline.nvim"
@@ -58,9 +60,31 @@ return packer.startup(function(use)
   use "goolord/alpha-nvim"
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
+  use "scrooloose/nerdcommenter"
+  use 'tpope/vim-rsi'
+  use 'tpope/vim-surround'
+  use 'tpope/vim-abolish'
+  use 'mattn/calendar-vim'
+  use {
+    "vimwiki/vimwiki",
+    config = function()
+      vim.g.vimwiki_list = {
+         {
+            path = '~/Dropbox/vimwiki/notes/',
+            syntax = 'markdown',
+            ext = '.md',
+        },
+        {
+            path = '~/Dropbox/vimwiki/notes/journal/',
+            syntax = 'markdown',
+            ext = '.md',
+        }
+      }
+    end
+  }
 
   -- Colorschemes
-  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
+  use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
 
   -- cmp plugins
@@ -70,6 +94,8 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-nvim-lua"
+  use "andersevenrud/cmp-tmux"
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -90,6 +116,7 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
+  use "p00f/nvim-ts-rainbow"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
