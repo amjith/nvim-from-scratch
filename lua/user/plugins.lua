@@ -69,23 +69,28 @@ return packer.startup(function(use)
     "vimwiki/vimwiki",
     config = function()
       vim.g.vimwiki_list = {
-         {
-            path = '~/Dropbox/vimwiki/notes/',
-            syntax = 'markdown',
-            ext = '.md',
+        {
+          path = '~/Dropbox/vimwiki/notes/',
+          syntax = 'markdown',
+          ext = '.md',
         },
         {
-            path = '~/Dropbox/vimwiki/notes/journal/',
-            syntax = 'markdown',
-            ext = '.md',
+          path = '~/Dropbox/vimwiki/notes/journal/',
+          syntax = 'markdown',
+          ext = '.md',
         }
       }
     end
   }
+  use 'google/vim-maktaba'
+  use 'google/vim-coverage'
+  use 'google/vim-glaive'
+  use 'tpope/vim-fugitive'
 
   -- Colorschemes
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
+  use "altercation/vim-colors-solarized"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
