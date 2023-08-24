@@ -65,6 +65,7 @@ return packer.startup(function(use)
   use 'tpope/vim-surround'
   use 'tpope/vim-abolish'
   use 'mattn/calendar-vim'
+  use 'ap/vim-css-color'
   use {
     "vimwiki/vimwiki",
     config = function()
@@ -82,15 +83,25 @@ return packer.startup(function(use)
       }
     end
   }
-  use 'google/vim-maktaba'
-  use 'google/vim-coverage'
-  use 'google/vim-glaive'
   use 'tpope/vim-fugitive'
+  use({
+    "andythigpen/nvim-coverage",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("user.coverage")
+    end,
+  })
+  use 'tpope/vim-repeat'
+  use 'machakann/vim-swap'
+  use 'zah/nim.vim'
+  use 'tveskag/nvim-blame-line'
+  use 'christoomey/vim-tmux-navigator'
 
   -- Colorschemes
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
   use "altercation/vim-colors-solarized"
+  use 'JoosepAlviste/palenightfall.nvim'
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -108,8 +119,10 @@ return packer.startup(function(use)
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  use "williamboman/mason.nvim" -- simple to use language server installer
+  use "williamboman/mason-lspconfig.nvim" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+  --use { "jose-elias-alvarez/null-ls.nvim", commit = "c0c19f32b614b3921e17886c541c13a72748d450" } -- for formatters and linters
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
   -- Telescope
@@ -125,6 +138,9 @@ return packer.startup(function(use)
 
   -- Git
   use "lewis6991/gitsigns.nvim"
+
+  -- Copilot
+  use { "zbirenbaum/copilot.lua" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
